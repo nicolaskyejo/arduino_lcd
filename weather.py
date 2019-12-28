@@ -7,6 +7,7 @@ import time
 port = 'COM3'  # on Windows
 url = 'https://supersaa.fi'  # default setting is 'Helsinki', to change location open url in web browser or send cookies
 
+
 with serial.Serial(port) as ser:
     assert ser.name == port
     r = requests.get(url)
@@ -24,5 +25,5 @@ with serial.Serial(port) as ser:
 
     print(temperature, wind, feels_like, rain_probability, rain_amount)
     time.sleep(2)  # without this, serial write doesn't take place
-    string = f'temp is {temperature}C, feels like {feels_like}C'.replace('°','')
+    string = f'temp is {temperature}C, feels like {feels_like}C'.replace('°', '')
     ser.write(string.encode())
