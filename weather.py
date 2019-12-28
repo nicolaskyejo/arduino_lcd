@@ -25,12 +25,12 @@ def weather_scraper():
     weather_bottom = list(weather.children)[3]
 
     temperature = weather_top.find(class_='supers-current-temperature').get_text()
-    wind = weather_top.find(class_='supers-windspeed').get_text()
+    wind_speed = weather_top.find(class_='supers-windspeed').get_text()
     feels_like = weather_bottom.find(class_='supers-temperature').find('span', 'supers-value').get_text()
     rain_probability = weather_bottom.find(class_='supers-probability-of-rain').find('span', 'supers-value').get_text()
     rain_amount = weather_bottom.find(class_='supers-rain-amount').find('span', 'supers-value').get_text()
 
-    print(temperature, wind, feels_like, rain_probability, rain_amount)  # debug
+    print(temperature, wind_speed, feels_like, rain_probability, rain_amount)  # debug
     current_time = time.strftime('%H:%M')
     string = f'temp is {temperature}C/{feels_like}C at {current_time}'.replace('°', '')
     return string
