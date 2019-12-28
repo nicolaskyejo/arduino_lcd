@@ -7,6 +7,9 @@ import time
 port = 'COM3'  # on Windows
 url = 'https://supersaa.fi'  # default setting is 'Helsinki', to change location open url in web browser or send cookies
 
+#TODO
+# Replace web scraping with weather api
+
 
 def serial_write(string):
     with serial.Serial(port) as ser:
@@ -32,7 +35,7 @@ def weather_scraper():
 
     print(temperature, wind_speed, feels_like, rain_probability, rain_amount)  # debug
     current_time = time.strftime('%H:%M')
-    string = f'temp is {temperature}C/{feels_like}C at {current_time}'.replace('°', '')
+    string = f'Temp is {temperature}C/{feels_like}C at {current_time}'.replace('°', '')
     return string
 
 
