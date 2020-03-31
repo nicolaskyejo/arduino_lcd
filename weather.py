@@ -35,7 +35,7 @@ def weather_scraper() -> str:
         rain_probability = weather_bottom.find(class_='supers-probability-of-rain').find('span', 'supers-value').get_text()
         rain_amount = weather_bottom.find(class_='supers-rain-amount').find('span', 'supers-value').get_text()
 
-        print(temperature, feels_like, wind_speed, rain_probability, rain_amount, 'at', time.strftime('%A %H:%M'))  # debug print
+        print(f'temp {temperature}/feels like {feels_like}, wind speed {wind_speed}, chance of rain {rain_probability}, rain fall {rain_amount} - {time.strftime("%A %H:%M")}')  # debug print
         current_time = time.strftime('%H:%M')
         text = f'Temp is {temperature}C/{feels_like}C at {current_time} -> {rain_probability}'.replace('°', '')
         return text
